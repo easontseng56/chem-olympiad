@@ -8,45 +8,48 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
 <style>
-:root{--bg:#f6f7f5;--surface:#fff;--ink:#1b2326;--muted:#5a666a;--line:#dde2df;--accent:#0f6e74;--accent-ink:#fff;--soft:#e4f1f0;--note:#b4541a;
---display:"Noto Serif TC","Songti TC",serif;--body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111819;--surface:#182224;--ink:#e7eeee;--muted:#9aa9ab;--line:#2b3a3c;--accent:#5fc3c7;--accent-ink:#0b1415;--soft:#1d3436;--note:#f0a06a;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#111819;--surface:#182224;--ink:#e7eeee;--muted:#9aa9ab;--line:#2b3a3c;--accent:#5fc3c7;--accent-ink:#0b1415;--soft:#1d3436;--note:#f0a06a;color-scheme:dark}
+/* Same look as chem-exam: title, one card, a row per year with a colored year tag and paper links */
+:root{
+  --bg:#f3f6f6; --surface:#ffffff; --ink:#14242b; --muted:#5b6d73; --line:#d5dfe1; --accent:#0f6e74; --accent-soft:#e1f0f0;
+  --display:"Noto Serif TC","Songti TC",serif; --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f1a1e;--surface:#16252a;--ink:#e3eeef;--muted:#93a7ac;--line:#2a3d43;--accent:#5cc4c8;--accent-soft:#1c3a3e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1a1e;--surface:#16252a;--ink:#e3eeef;--muted:#93a7ac;--line:#2a3d43;--accent:#5cc4c8;--accent-soft:#1c3a3e;color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
-a{color:var(--accent)}
-.wrap{max-width:760px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:18px}
-h1{margin:0;font-family:var(--display);font-size:clamp(26px,5vw,36px);line-height:1.25;font-weight:900}
-.lede{margin:6px 0 0;color:var(--muted);font-size:15px}
-.list{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:10px}
-.row{display:flex;align-items:center;gap:12px;padding:9px 14px;border-top:1px solid var(--line)}
-.row:first-child{border-top:0}
-.yr{flex:0 0 auto;font-variant-numeric:tabular-nums}
-.yr b{font-size:17px}
-.yr span{font-size:13px;color:var(--muted);margin-left:6px}
-.note{flex:1;min-width:0;font-size:13px;color:var(--note);line-height:1.4}
-.acts{display:flex;gap:6px;margin-left:auto;flex:0 0 auto}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:3px 12px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;border:1.5px solid var(--accent);color:var(--accent);background:var(--surface)}
-.btn:hover{background:var(--soft)}
-.btn.solid{background:var(--accent);color:var(--accent-ink)}
-.btn:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.offer,.about{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 18px}
-.offer h2,.about h2{font-family:var(--display);font-weight:900;font-size:20px;margin:0}
-.offer p,.about p{margin:0;max-width:65ch}
-.warn{color:#c0392b;font-weight:700}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;margin:0}
+.wrap{max-width:880px;margin:0 auto;padding-inline:16px;padding-block:32px 56px;display:flex;flex-direction:column;gap:20px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(26px,5vw,36px);line-height:1.2;margin:0}
+.count{margin:6px 0 0;font-size:15px;font-weight:700;color:var(--accent)}
+.count b{font-size:22px}
+.lede{color:var(--muted);margin:4px 0 0}
+.lede a{color:var(--accent)}
+.sc:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.term{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 16px 10px}
+.term h2{font-size:18px;font-weight:700;margin:0 0 4px;color:var(--ink)}
+.grow{display:grid;grid-template-columns:4.6em 1fr;gap:8px;align-items:center;padding:6px 0;border-top:1px solid var(--line)}
+.term h2+.grow{border-top:0}
+.gt{font-size:13px;font-weight:700;text-align:center;padding:4px 0;border-radius:6px;color:var(--accent);background:var(--accent-soft);font-variant-numeric:tabular-nums}
+.schools{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.ed{font-size:13px;color:var(--muted);min-width:4.5em}
+.sc{font-size:14px;padding:3px 10px;border-radius:6px;background:var(--bg);border:1px solid var(--line);color:var(--ink);text-decoration:none}
+.sc:hover{border-color:var(--accent);background:var(--accent-soft)}
+.offer{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 18px}
+.offer h2{font-family:var(--display);font-weight:900;font-size:20px;margin:0}
+.offer p{margin:0;max-width:65ch}
 .contact{display:flex;flex-wrap:wrap;gap:10px}
-.pill{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;text-decoration:none;font-weight:700;border:1px solid var(--accent);color:var(--accent)}
-.pill.primary{background:var(--accent);color:var(--bg)}
-.pill:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.about h3{font-size:16px;margin:4px 0 0}
-.about dl{margin:0;display:flex;flex-direction:column;gap:8px}
-.about dt{font-weight:700}
-.about dd{margin:0;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;text-decoration:none;font-weight:700;border:1px solid var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--bg)}
 .info{display:flex;flex-direction:column;gap:4px;font-size:14px}
 .info p{margin:0}
 .info a{color:var(--accent)}
+.about{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 18px}
+.about h2{font-family:var(--display);font-weight:900;font-size:20px;margin:0}
+.about h3{font-size:16px;margin:4px 0 0}
+.about p{margin:0;max-width:65ch}
+.about dl{margin:0;display:flex;flex-direction:column;gap:8px}
+.about dt{font-weight:700}
+.about dd{margin:0;color:var(--muted)}
 footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
-@media (max-width:560px){.row{flex-wrap:wrap;padding:10px 12px}.note{order:3;flex-basis:100%}}
 </style>
 <link rel="canonical" href="https://easontseng56.github.io/chem-olympiad/">
 <meta property="og:type" content="website">
@@ -61,36 +64,19 @@ footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);paddin
 <div class="wrap">
 <header>
   <h1>化學奧林匹亞初選題庫</h1>
-  <p class="lede">2012–2026 年第 44–58 屆，題目卷與官方答案原始 PDF。</p>
+  <p class="count">目前收錄共 <b>15</b> 屆</p>
+  <p class="lede">周逸化學提供。2012～2026 年第 44～58 屆，點「題目」或「答案」開啟原始 PDF。</p>
 </header>
-<main>
-<ol class="list" reversed>
-<li class="row"><span class="yr"><b>2026</b><span>第 58 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/1QrwJaN0EWJ6Ic6TYPH7xObnA9haGHT5s/view" target="_blank" rel="noopener" data-paper="2026 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/1RTnQSUONohnyxALShf7b7HOZ3vDICUnj/view" target="_blank" rel="noopener" data-paper="2026 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2025</b><span>第 57 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/12xy3hfB-9pYOERGxWFwQUDxgeeXWFlrO/view" target="_blank" rel="noopener" data-paper="2025 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/1KuR1Nk6xfOIHupAJL8AuRo-eCyieuXXM/view" target="_blank" rel="noopener" data-paper="2025 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2024</b><span>第 56 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/1ZKb9mRECw9AiRy5ronKRwEQayB3v5VwV/view" target="_blank" rel="noopener" data-paper="2024 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/197iYlD4puJdwqOsoTB_sTlT5cx7xZbHJ/view" target="_blank" rel="noopener" data-paper="2024 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2023</b><span>第 55 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/1RZewY1MuQ1Dzr4F5W4S_2AjtV6HsIUrB/view" target="_blank" rel="noopener" data-paper="2023 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/1Mf0GP5MEzGY3OU2_C3zJtHPQhPHpvuUL/view" target="_blank" rel="noopener" data-paper="2023 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2022</b><span>第 54 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/1dLA8cMsyvV-R-aNbQo7-K3WWQVTHtT-S/view" target="_blank" rel="noopener" data-paper="2022 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/1lz9EyKjl_3UvN5m2lkY49Xy3vQloEzAB/view" target="_blank" rel="noopener" data-paper="2022 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2021</b><span>第 53 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/1MEDeGjJd-xhanCPipA3QV51dMqFtHiVq/view" target="_blank" rel="noopener" data-paper="2021 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/1vTAC9qQq6nvw7g5yxp7XiOiRH2NzGKLR/view" target="_blank" rel="noopener" data-paper="2021 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2020</b><span>第 52 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/16pWu6RGuQwenEy0Rf2H1KJDptUyGv54q/view" target="_blank" rel="noopener" data-paper="2020 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/1VclVmVwzQtUDF9efZ7penrbvcv9d-9k0/view" target="_blank" rel="noopener" data-paper="2020 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2019</b><span>第 51 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/1Ps9hcemGj-aCxP9mhhnA3ukFgKcqqoBU/view" target="_blank" rel="noopener" data-paper="2019 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/1Ae7OfMmsoChBbL-09kPewrc0fMdkklnD/view" target="_blank" rel="noopener" data-paper="2019 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2018</b><span>第 50 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/1qPF2mOtQE_C-5-IAajBB_xDNfgijL8Is/view" target="_blank" rel="noopener" data-paper="2018 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/1XoL8hx3023yejVLovEjilbg1oy-fA7Kn/view" target="_blank" rel="noopener" data-paper="2018 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2017</b><span>第 49 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/1Hh0CYNdy3Cl3pEmdQeAStsuCMxBAxc-t/view" target="_blank" rel="noopener" data-paper="2017 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/1yuv3XfFiYXVk4AzpQOdMAIQfjtq9103q/view" target="_blank" rel="noopener" data-paper="2017 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2016</b><span>第 48 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/14txgOSt_dYGjeCXV8Dj0PMiXYl8Wcu_L/view" target="_blank" rel="noopener" data-paper="2016 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/16IeeNZm_YvpTNxcRyWwVElacur2KpbiQ/view" target="_blank" rel="noopener" data-paper="2016 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2015</b><span>第 47 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/1v9Y7BadNiw4w1A97FArss7Th94E5W6Wl/view" target="_blank" rel="noopener" data-paper="2015 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/1Bp2maz92Fwkv2Qk232UIl3e1r96Y9n7J/view" target="_blank" rel="noopener" data-paper="2015 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2014</b><span>第 46 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/1d31VxkcpI7MEdLXuICYazretnCt2VWr9/view" target="_blank" rel="noopener" data-paper="2014 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/1cs5Zy7Diao_s76WH3wdn16Npu32Rlmxh/view" target="_blank" rel="noopener" data-paper="2014 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2013</b><span>第 45 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/1aE8ey7WXN8P0CpT5zOopQPFZiaGQY01v/view" target="_blank" rel="noopener" data-paper="2013 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/1dnICiIJlcajN_dQhuAQ-xwnpZrjRz3YS/view" target="_blank" rel="noopener" data-paper="2013 化奧初選 答案">答案</a></span></li>
-<li class="row"><span class="yr"><b>2012</b><span>第 44 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/1rcy4mJQOj7X9eDxatGE3mEKT9MxVG3wG/view" target="_blank" rel="noopener" data-paper="2012 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/110h56nRf-RXMwqo4cw8FLeVU-6egkRr0/view" target="_blank" rel="noopener" data-paper="2012 化奧初選 答案">答案</a></span></li>
-</ol>
-</main>
+<main id="list"><section class="term"><h2>化奧初選 歷屆試題</h2><div class="grow"><div class="gt">2026</div><div class="schools"><span class="ed">第 58 屆</span><a class="sc" href="https://drive.google.com/file/d/1QrwJaN0EWJ6Ic6TYPH7xObnA9haGHT5s/view" target="_blank" rel="noopener" data-paper="2026 化奧初選 題目" title="2026 年第 58 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/1RTnQSUONohnyxALShf7b7HOZ3vDICUnj/view" target="_blank" rel="noopener" data-paper="2026 化奧初選 答案" title="2026 年第 58 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2025</div><div class="schools"><span class="ed">第 57 屆</span><a class="sc" href="https://drive.google.com/file/d/12xy3hfB-9pYOERGxWFwQUDxgeeXWFlrO/view" target="_blank" rel="noopener" data-paper="2025 化奧初選 題目" title="2025 年第 57 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/1KuR1Nk6xfOIHupAJL8AuRo-eCyieuXXM/view" target="_blank" rel="noopener" data-paper="2025 化奧初選 答案" title="2025 年第 57 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2024</div><div class="schools"><span class="ed">第 56 屆</span><a class="sc" href="https://drive.google.com/file/d/1ZKb9mRECw9AiRy5ronKRwEQayB3v5VwV/view" target="_blank" rel="noopener" data-paper="2024 化奧初選 題目" title="2024 年第 56 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/197iYlD4puJdwqOsoTB_sTlT5cx7xZbHJ/view" target="_blank" rel="noopener" data-paper="2024 化奧初選 答案" title="2024 年第 56 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2023</div><div class="schools"><span class="ed">第 55 屆</span><a class="sc" href="https://drive.google.com/file/d/1RZewY1MuQ1Dzr4F5W4S_2AjtV6HsIUrB/view" target="_blank" rel="noopener" data-paper="2023 化奧初選 題目" title="2023 年第 55 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/1Mf0GP5MEzGY3OU2_C3zJtHPQhPHpvuUL/view" target="_blank" rel="noopener" data-paper="2023 化奧初選 答案" title="2023 年第 55 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2022</div><div class="schools"><span class="ed">第 54 屆</span><a class="sc" href="https://drive.google.com/file/d/1dLA8cMsyvV-R-aNbQo7-K3WWQVTHtT-S/view" target="_blank" rel="noopener" data-paper="2022 化奧初選 題目" title="2022 年第 54 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/1lz9EyKjl_3UvN5m2lkY49Xy3vQloEzAB/view" target="_blank" rel="noopener" data-paper="2022 化奧初選 答案" title="2022 年第 54 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2021</div><div class="schools"><span class="ed">第 53 屆</span><a class="sc" href="https://drive.google.com/file/d/1MEDeGjJd-xhanCPipA3QV51dMqFtHiVq/view" target="_blank" rel="noopener" data-paper="2021 化奧初選 題目" title="2021 年第 53 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/1vTAC9qQq6nvw7g5yxp7XiOiRH2NzGKLR/view" target="_blank" rel="noopener" data-paper="2021 化奧初選 答案" title="2021 年第 53 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2020</div><div class="schools"><span class="ed">第 52 屆</span><a class="sc" href="https://drive.google.com/file/d/16pWu6RGuQwenEy0Rf2H1KJDptUyGv54q/view" target="_blank" rel="noopener" data-paper="2020 化奧初選 題目" title="2020 年第 52 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/1VclVmVwzQtUDF9efZ7penrbvcv9d-9k0/view" target="_blank" rel="noopener" data-paper="2020 化奧初選 答案" title="2020 年第 52 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2019</div><div class="schools"><span class="ed">第 51 屆</span><a class="sc" href="https://drive.google.com/file/d/1Ps9hcemGj-aCxP9mhhnA3ukFgKcqqoBU/view" target="_blank" rel="noopener" data-paper="2019 化奧初選 題目" title="2019 年第 51 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/1Ae7OfMmsoChBbL-09kPewrc0fMdkklnD/view" target="_blank" rel="noopener" data-paper="2019 化奧初選 答案" title="2019 年第 51 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2018</div><div class="schools"><span class="ed">第 50 屆</span><a class="sc" href="https://drive.google.com/file/d/1qPF2mOtQE_C-5-IAajBB_xDNfgijL8Is/view" target="_blank" rel="noopener" data-paper="2018 化奧初選 題目" title="2018 年第 50 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/1XoL8hx3023yejVLovEjilbg1oy-fA7Kn/view" target="_blank" rel="noopener" data-paper="2018 化奧初選 答案" title="2018 年第 50 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2017</div><div class="schools"><span class="ed">第 49 屆</span><a class="sc" href="https://drive.google.com/file/d/1Hh0CYNdy3Cl3pEmdQeAStsuCMxBAxc-t/view" target="_blank" rel="noopener" data-paper="2017 化奧初選 題目" title="2017 年第 49 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/1yuv3XfFiYXVk4AzpQOdMAIQfjtq9103q/view" target="_blank" rel="noopener" data-paper="2017 化奧初選 答案" title="2017 年第 49 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2016</div><div class="schools"><span class="ed">第 48 屆</span><a class="sc" href="https://drive.google.com/file/d/14txgOSt_dYGjeCXV8Dj0PMiXYl8Wcu_L/view" target="_blank" rel="noopener" data-paper="2016 化奧初選 題目" title="2016 年第 48 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/16IeeNZm_YvpTNxcRyWwVElacur2KpbiQ/view" target="_blank" rel="noopener" data-paper="2016 化奧初選 答案" title="2016 年第 48 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2015</div><div class="schools"><span class="ed">第 47 屆</span><a class="sc" href="https://drive.google.com/file/d/1v9Y7BadNiw4w1A97FArss7Th94E5W6Wl/view" target="_blank" rel="noopener" data-paper="2015 化奧初選 題目" title="2015 年第 47 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/1Bp2maz92Fwkv2Qk232UIl3e1r96Y9n7J/view" target="_blank" rel="noopener" data-paper="2015 化奧初選 答案" title="2015 年第 47 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2014</div><div class="schools"><span class="ed">第 46 屆</span><a class="sc" href="https://drive.google.com/file/d/1d31VxkcpI7MEdLXuICYazretnCt2VWr9/view" target="_blank" rel="noopener" data-paper="2014 化奧初選 題目" title="2014 年第 46 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/1cs5Zy7Diao_s76WH3wdn16Npu32Rlmxh/view" target="_blank" rel="noopener" data-paper="2014 化奧初選 答案" title="2014 年第 46 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2013</div><div class="schools"><span class="ed">第 45 屆</span><a class="sc" href="https://drive.google.com/file/d/1aE8ey7WXN8P0CpT5zOopQPFZiaGQY01v/view" target="_blank" rel="noopener" data-paper="2013 化奧初選 題目" title="2013 年第 45 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/1dnICiIJlcajN_dQhuAQ-xwnpZrjRz3YS/view" target="_blank" rel="noopener" data-paper="2013 化奧初選 答案" title="2013 年第 45 屆化奧初選答案">答案</a></div></div><div class="grow"><div class="gt">2012</div><div class="schools"><span class="ed">第 44 屆</span><a class="sc" href="https://drive.google.com/file/d/1rcy4mJQOj7X9eDxatGE3mEKT9MxVG3wG/view" target="_blank" rel="noopener" data-paper="2012 化奧初選 題目" title="2012 年第 44 屆化奧初選題目">題目</a><a class="sc" href="https://drive.google.com/file/d/110h56nRf-RXMwqo4cw8FLeVU-6egkRr0/view" target="_blank" rel="noopener" data-paper="2012 化奧初選 答案" title="2012 年第 44 屆化奧初選答案">答案</a></div></div></section></main>
 <section class="offer" id="offer">
   <h2>更多化學學習資源</h2>
-  <p class="warn">試卷資源僅供學術研究與個人學習，勿商業化。</p>
+  <p style="color:#c0392b;font-weight:700">試卷資源僅供學術研究與個人學習，勿商業化。</p>
   <p>化學線上課程、新竹地區各校化學段考題庫與學測模考題庫，歡迎透過官方 LINE 洽詢。</p>
   <div class="contact">
-    <a class="pill primary" href="https://line.me/R/ti/p/@gpk3115q" target="_blank" rel="noopener">官方 LINE 諮詢 ↗</a>
-    <a class="pill" href="https://firstquadrant.kaik.io/" target="_blank" rel="noopener">第一象限線上課程 ↗</a>
-    <a class="pill" href="https://easontseng56.github.io/chem-exam/" target="_blank" rel="noopener">新竹高中化學段考題庫 ↗</a>
-    <a class="pill" href="https://easontseng56.github.io/chem-mock/" target="_blank" rel="noopener">學測模考題庫 ↗</a>
+    <a class="btn primary" href="https://line.me/R/ti/p/@gpk3115q" target="_blank" rel="noopener">官方 LINE 諮詢 ↗</a>
+    <a class="btn" href="https://firstquadrant.kaik.io/" target="_blank" rel="noopener">第一象限線上課程 ↗</a>
+    <a class="btn" href="https://easontseng56.github.io/chem-exam/" target="_blank" rel="noopener">新竹高中化學段考題庫 ↗</a>
+    <a class="btn" href="https://easontseng56.github.io/chem-mock/" target="_blank" rel="noopener">學測模考題庫 ↗</a>
   </div>
 </section>
 <section class="about" id="about">
