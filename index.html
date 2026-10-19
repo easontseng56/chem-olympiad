@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>化學奧林匹亞初選題庫</title>
+<meta name="description" content="國際化學奧林匹亞競賽初選考古題 2012～2026（第 44～58 屆），題目卷與官方答案原始 PDF 免費下載。周逸化學整理。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<style>
+/* 版面比照「新竹高中化學段考題庫」：抬頭 → 黏頂篩選列 → 依年代分區的卡片格 → 詳解洽詢 → 常見問題 → 聯絡資訊 */
+:root{--bg:#f6f7f5;--surface:#fff;--ink:#1b2326;--muted:#5a666a;--line:#dde2df;--accent:#0f6e74;--accent-ink:#fff;--soft:#e4f1f0;--warn:#b42318;
+--t0:#0f6e74;--t1:#b4541a;--t2:#3456a6;--t3:#6d4aa8;
+--display:"Noto Serif TC","Songti TC",serif;--body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111819;--surface:#182224;--ink:#e7eeee;--muted:#9aa9ab;--line:#2b3a3c;--accent:#5fc3c7;--accent-ink:#0b1415;--soft:#1d3436;--warn:#ff8a80;
+--t0:#5fc3c7;--t1:#f0a06a;--t2:#8fb0ff;--t3:#c6a6ff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111819;--surface:#182224;--ink:#e7eeee;--muted:#9aa9ab;--line:#2b3a3c;--accent:#5fc3c7;--accent-ink:#0b1415;--soft:#1d3436;--warn:#ff8a80;
+--t0:#5fc3c7;--t1:#f0a06a;--t2:#8fb0ff;--t3:#c6a6ff;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:120px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.7}
+a{color:var(--accent)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.hero{padding-block:44px 20px}
+.eyebrow{margin:0 0 6px;font-size:14px;font-weight:700;letter-spacing:.08em;color:var(--accent)}
+h1{margin:0;font-family:var(--display);font-size:clamp(30px,6vw,44px);line-height:1.25;font-weight:900;text-wrap:balance}
+.lede{margin:12px 0 0;max-width:40em;color:var(--muted)}
+.stats{display:flex;flex-wrap:wrap;gap:8px 22px;margin:16px 0 0;padding:0;list-style:none;font-size:15px;color:var(--muted)}
+.stats b{font-size:24px;color:var(--accent);font-weight:900;margin-right:4px;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding-block:12px}
+.filter{display:flex;gap:8px;align-items:center;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.flabel{flex:none;font-size:14px;font-weight:700;color:var(--muted);width:2.6em}
+.chip{flex:none;font:inherit;font-size:15px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:5px 14px;border-radius:999px;cursor:pointer;min-height:36px;font-variant-numeric:tabular-nums}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.chip:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.count{margin:6px 0 0;font-size:14px;color:var(--muted)}
+main{display:flex;flex-direction:column;gap:36px;padding-block:28px 40px}
+.year h2{margin:0 0 12px;font-size:26px;font-weight:900;display:flex;align-items:baseline;gap:10px;font-variant-numeric:tabular-nums}
+.year h2 small{font-size:15px;font-weight:500;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.card{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"tag tag" "ttl code" "subs subs" "note note" "acts acts";align-items:baseline;gap:4px 10px;padding:16px 16px 14px;background:var(--surface);border:1px solid var(--line);border-left:6px solid currentColor;border-radius:12px;min-width:0}
+.card.g0{color:var(--t0)}.card.g1{color:var(--t1)}.card.g2{color:var(--t2)}.card.g3{color:var(--t3)}
+.tag{grid-area:tag;justify-self:start;font-size:13px;font-weight:700;padding:2px 10px;border-radius:6px;border:1.5px solid currentColor}
+.ttl{grid-area:ttl;margin:0;color:var(--ink);font-size:26px;font-weight:900;font-variant-numeric:tabular-nums}
+.code{grid-area:code;font-size:14px;color:var(--muted)}
+.subs{grid-area:subs;margin:0;font-size:14px;color:var(--muted)}
+.note{grid-area:note;margin:2px 0 0;font-size:13px;line-height:1.55;color:var(--ink);background:var(--soft);border-radius:8px;padding:6px 10px}
+.acts{grid-area:acts;display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:6px 14px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid var(--accent);color:var(--accent);background:var(--surface)}
+.btn:hover{background:var(--soft)}
+.btn.solid{background:var(--accent);color:var(--accent-ink)}
+.btn.solid:hover{filter:brightness(1.08)}
+.empty{text-align:center;color:var(--muted)}
+.info{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.info h2{margin:0;font-size:22px;font-weight:900;font-family:var(--display)}
+.info p{margin:0;max-width:65ch}
+.warn{color:var(--warn);font-weight:700}
+.contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+details{border-top:1px solid var(--line)}
+details:first-of-type{border-top:0}
+summary{cursor:pointer;padding:10px 0;font-weight:700}
+details p{margin:0 0 12px;color:var(--muted)}
+.addr{font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:2px}
+.addr p{margin:0}
+footer{padding-block:16px 40px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+.stack{display:flex;flex-direction:column;gap:20px;padding-bottom:28px}
+@media (max-width:640px){body{font-size:16px}.bar{position:static;padding-block:8px}.cards{grid-template-columns:1fr}}
+</style>
+<link rel="canonical" href="https://easontseng56.github.io/chem-olympiad/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="化學奧林匹亞初選題庫">
+<meta property="og:url" content="https://easontseng56.github.io/chem-olympiad/">
+<meta property="og:locale" content="zh_TW">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F5R5RTPLHG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-F5R5RTPLHG');document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&a.dataset.paper)gtag('event','open_paper',{paper:a.dataset.paper,transport_type:'beacon'})});</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "化奧初選是什麼考試？", "acceptedAnswer": {"@type": "Answer", "text": "全名是國際化學奧林匹亞競賽國家代表隊初選，每年約 11 月舉行，高中生報名參加。初選通過後還有複選與培訓，最後選出 4 位國手代表臺灣參加國際賽。"}}, {"@type": "Question", "name": "收錄哪幾屆？", "acceptedAnswer": {"@type": "Answer", "text": "2012 年第 44 屆到 2026 年第 58 屆，共 15 屆，題目卷與官方公布的答案都是原始檔。"}}, {"@type": "Question", "name": "考試範圍到哪裡？", "acceptedAnswer": {"@type": "Answer", "text": "大致涵蓋高中必修與選修化學，也會出現 ΔG°、熵、積分速率式這類超出課綱的內容。2016 年以後題型固定為單選 24 題、多選 17 題、非選 4 題，共 200 分，120 分鐘，不能用計算機。"}}, {"@type": "Question", "name": "答案和原卷不一樣怎麼辦？", "acceptedAnswer": {"@type": "Answer", "text": "以官方答案為準。官方有送分、更正或多組答案給分的屆次，卡片上都有註明；2026 年第 58 屆放的是官方修正版答案。"}}, {"@type": "Question", "name": "可以拿去商業使用嗎？", "acceptedAnswer": {"@type": "Answer", "text": "不行。試卷資源僅供學術研究與個人學習，請勿商業化。"}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <p class="eyebrow">Chemistry Olympiad · 化奧初選考古題</p>
+  <h1>化學奧林匹亞初選題庫</h1>
+  <p class="lede">國際化學奧林匹亞競賽初選歷屆考古題，依年份整理。點「題目卷」開啟原始試卷 PDF，點「官方答案」開啟官方公布的答案，可線上看或下載練習。想要逐題詳解？<a href="#offer">看這裡</a>。</p>
+  <ul class="stats"><li><b>15</b>屆</li><li><b>2012–2026</b>第 44–58 屆</li><li><b>682</b>題</li></ul>
+</header>
+</div>
+<nav class="bar" aria-label="篩選"><div class="wrap">
+  <div class="filter"><span class="flabel">年代</span>
+    <button class="chip" type="button" data-g="" aria-pressed="true">全部</button>
+    <button class="chip" type="button" data-g="0" aria-pressed="false">2024–2026</button>
+    <button class="chip" type="button" data-g="1" aria-pressed="false">2020–2023</button>
+    <button class="chip" type="button" data-g="2" aria-pressed="false">2016–2019</button>
+    <button class="chip" type="button" data-g="3" aria-pressed="false">2012–2015</button>
+  </div>
+  <p class="count" aria-live="polite">顯示 15 屆</p>
+</div></nav>
+<div class="wrap">
+<main id="list">
+<section class="year" data-g="0">
+  <h2>2024–2026<small>3 屆</small></h2>
+  <div class="cards">
+<article class="card g0">
+  <span class="tag">第 58 屆</span>
+  <h3 class="ttl">2026</h3><span class="code">45 題</span>
+  <p class="subs">單選 24・多選 17・非選 4</p>
+  <p class="note">答案為官方修正版：第 1、9 題兩選項皆給分，第 13、17 題送分，第 34 題改 E</p>
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/1QrwJaN0EWJ6Ic6TYPH7xObnA9haGHT5s/view" target="_blank" rel="noopener" data-paper="2026 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/17dL-Ye6HqcPU_KmVWHy2iWkRBSRbq3LN/view" target="_blank" rel="noopener" data-paper="2026 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+<article class="card g0">
+  <span class="tag">第 57 屆</span>
+  <h3 class="ttl">2025</h3><span class="code">45 題</span>
+  <p class="subs">單選 24・多選 17・非選 4</p>
+  
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/12xy3hfB-9pYOERGxWFwQUDxgeeXWFlrO/view" target="_blank" rel="noopener" data-paper="2025 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/1KuR1Nk6xfOIHupAJL8AuRo-eCyieuXXM/view" target="_blank" rel="noopener" data-paper="2025 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+<article class="card g0">
+  <span class="tag">第 56 屆</span>
+  <h3 class="ttl">2024</h3><span class="code">45 題</span>
+  <p class="subs">單選 24・多選 17・非選 4</p>
+  
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/1ZKb9mRECw9AiRy5ronKRwEQayB3v5VwV/view" target="_blank" rel="noopener" data-paper="2024 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/197iYlD4puJdwqOsoTB_sTlT5cx7xZbHJ/view" target="_blank" rel="noopener" data-paper="2024 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="year" data-g="1">
+  <h2>2020–2023<small>4 屆</small></h2>
+  <div class="cards">
+<article class="card g1">
+  <span class="tag">第 55 屆</span>
+  <h3 class="ttl">2023</h3><span class="code">45 題</span>
+  <p class="subs">單選 24・多選 17・非選 4</p>
+  <p class="note">第 16、28、32 題送分；第 18 題 A、B、E 任一給分</p>
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/1RZewY1MuQ1Dzr4F5W4S_2AjtV6HsIUrB/view" target="_blank" rel="noopener" data-paper="2023 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/1Mf0GP5MEzGY3OU2_C3zJtHPQhPHpvuUL/view" target="_blank" rel="noopener" data-paper="2023 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+<article class="card g1">
+  <span class="tag">第 54 屆</span>
+  <h3 class="ttl">2022</h3><span class="code">45 題</span>
+  <p class="subs">單選 24・多選 17・非選 4</p>
+  <p class="note">官方只公布選擇題答案</p>
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/1dLA8cMsyvV-R-aNbQo7-K3WWQVTHtT-S/view" target="_blank" rel="noopener" data-paper="2022 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/1lz9EyKjl_3UvN5m2lkY49Xy3vQloEzAB/view" target="_blank" rel="noopener" data-paper="2022 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+<article class="card g1">
+  <span class="tag">第 53 屆</span>
+  <h3 class="ttl">2021</h3><span class="code">45 題</span>
+  <p class="subs">單選 24・多選 17・非選 4</p>
+  <p class="note">第 25 題 (B) 選或不選皆給分</p>
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/1MEDeGjJd-xhanCPipA3QV51dMqFtHiVq/view" target="_blank" rel="noopener" data-paper="2021 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/1vTAC9qQq6nvw7g5yxp7XiOiRH2NzGKLR/view" target="_blank" rel="noopener" data-paper="2021 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+<article class="card g1">
+  <span class="tag">第 52 屆</span>
+  <h3 class="ttl">2020</h3><span class="code">44 題</span>
+  <p class="subs">單選 24・多選 16・非選 4</p>
+  
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/16pWu6RGuQwenEy0Rf2H1KJDptUyGv54q/view" target="_blank" rel="noopener" data-paper="2020 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/1VclVmVwzQtUDF9efZ7penrbvcv9d-9k0/view" target="_blank" rel="noopener" data-paper="2020 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="year" data-g="2">
+  <h2>2016–2019<small>4 屆</small></h2>
+  <div class="cards">
+<article class="card g2">
+  <span class="tag">第 51 屆</span>
+  <h3 class="ttl">2019</h3><span class="code">45 題</span>
+  <p class="subs">單選 24・多選 17・非選 4</p>
+  <p class="note">第 13、23 題送分；第 11、26 題答案已更正</p>
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/1Ps9hcemGj-aCxP9mhhnA3ukFgKcqqoBU/view" target="_blank" rel="noopener" data-paper="2019 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/1Ae7OfMmsoChBbL-09kPewrc0fMdkklnD/view" target="_blank" rel="noopener" data-paper="2019 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+<article class="card g2">
+  <span class="tag">第 50 屆</span>
+  <h3 class="ttl">2018</h3><span class="code">45 題</span>
+  <p class="subs">單選 24・多選 17・非選 4</p>
+  
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/1qPF2mOtQE_C-5-IAajBB_xDNfgijL8Is/view" target="_blank" rel="noopener" data-paper="2018 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/1XoL8hx3023yejVLovEjilbg1oy-fA7Kn/view" target="_blank" rel="noopener" data-paper="2018 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+<article class="card g2">
+  <span class="tag">第 49 屆</span>
+  <h3 class="ttl">2017</h3><span class="code">45 題</span>
+  <p class="subs">單選 24・多選 17・非選 4</p>
+  <p class="note">第 9 題不計分</p>
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/1Hh0CYNdy3Cl3pEmdQeAStsuCMxBAxc-t/view" target="_blank" rel="noopener" data-paper="2017 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/1yuv3XfFiYXVk4AzpQOdMAIQfjtq9103q/view" target="_blank" rel="noopener" data-paper="2017 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+<article class="card g2">
+  <span class="tag">第 48 屆</span>
+  <h3 class="ttl">2016</h3><span class="code">45 題</span>
+  <p class="subs">單選 24・多選 17・非選 4</p>
+  <p class="note">第 28 題送分</p>
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/14txgOSt_dYGjeCXV8Dj0PMiXYl8Wcu_L/view" target="_blank" rel="noopener" data-paper="2016 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/16IeeNZm_YvpTNxcRyWwVElacur2KpbiQ/view" target="_blank" rel="noopener" data-paper="2016 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="year" data-g="3">
+  <h2>2012–2015<small>4 屆</small></h2>
+  <div class="cards">
+<article class="card g3">
+  <span class="tag">第 47 屆</span>
+  <h3 class="ttl">2015</h3><span class="code">52 題</span>
+  <p class="subs">單選 32・多選 16・非選 4</p>
+  
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/1v9Y7BadNiw4w1A97FArss7Th94E5W6Wl/view" target="_blank" rel="noopener" data-paper="2015 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/1Bp2maz92Fwkv2Qk232UIl3e1r96Y9n7J/view" target="_blank" rel="noopener" data-paper="2015 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+<article class="card g3">
+  <span class="tag">第 46 屆</span>
+  <h3 class="ttl">2014</h3><span class="code">52 題</span>
+  <p class="subs">單選 32・多選 16・非選 4</p>
+  <p class="note">第 36、42、44、47 題兩組答案皆給分</p>
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/1d31VxkcpI7MEdLXuICYazretnCt2VWr9/view" target="_blank" rel="noopener" data-paper="2014 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/1cs5Zy7Diao_s76WH3wdn16Npu32Rlmxh/view" target="_blank" rel="noopener" data-paper="2014 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+<article class="card g3">
+  <span class="tag">第 45 屆</span>
+  <h3 class="ttl">2013</h3><span class="code">44 題</span>
+  <p class="subs">單選 28・多選 12・非選 4</p>
+  
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/1aE8ey7WXN8P0CpT5zOopQPFZiaGQY01v/view" target="_blank" rel="noopener" data-paper="2013 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/1dnICiIJlcajN_dQhuAQ-xwnpZrjRz3YS/view" target="_blank" rel="noopener" data-paper="2013 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+<article class="card g3">
+  <span class="tag">第 44 屆</span>
+  <h3 class="ttl">2012</h3><span class="code">40 題</span>
+  <p class="subs">單選 21・多選 15・非選 4</p>
+  <p class="note">總分 119 分；單選、多選各自從第 1 題編號</p>
+  <div class="acts">
+    <a class="btn solid" href="https://drive.google.com/file/d/1rcy4mJQOj7X9eDxatGE3mEKT9MxVG3wG/view" target="_blank" rel="noopener" data-paper="2012 化奧初選 題目">題目卷 PDF ↗</a>
+    <a class="btn" href="https://drive.google.com/file/d/110h56nRf-RXMwqo4cw8FLeVU-6egkRr0/view" target="_blank" rel="noopener" data-paper="2012 化奧初選 答案">官方答案 ↗</a>
+  </div>
+</article>
+  </div>
+</section>
+<p class="empty" hidden>這個條件下沒有考卷。</p>
+</main>
+<div class="stack">
+<section class="info" id="offer">
+  <h2>需要逐題詳解？</h2>
+  <p>每一屆都有周逸化學整理的逐題詳解與依章節分類的總練習卷，另有新竹地區各校化學段考題庫，歡迎透過官方 LINE 洽詢。</p>
+  <p class="warn">試卷資源僅供學術研究與個人學習，勿商業化。</p>
+  <div class="contact">
+    <a class="btn solid" href="https://line.me/R/ti/p/@gpk3115q" target="_blank" rel="noopener">官方 LINE 諮詢 ↗</a>
+    <a class="btn" href="https://easontseng56.github.io/chem-exam/" target="_blank" rel="noopener">新竹高中化學段考題庫 ↗</a>
+    <a class="btn" href="https://easontseng56.github.io/chem-mock/" target="_blank" rel="noopener">學測模考題庫 ↗</a>
+  </div>
+</section>
+<section class="info" id="faq">
+  <h2>常見問題</h2>
+  <div><details><summary>化奧初選是什麼考試？</summary><p>全名是國際化學奧林匹亞競賽國家代表隊初選，每年約 11 月舉行，高中生報名參加。初選通過後還有複選與培訓，最後選出 4 位國手代表臺灣參加國際賽。</p></details><details><summary>收錄哪幾屆？</summary><p>2012 年第 44 屆到 2026 年第 58 屆，共 15 屆，題目卷與官方公布的答案都是原始檔。</p></details><details><summary>考試範圍到哪裡？</summary><p>大致涵蓋高中必修與選修化學，也會出現 ΔG°、熵、積分速率式這類超出課綱的內容。2016 年以後題型固定為單選 24 題、多選 17 題、非選 4 題，共 200 分，120 分鐘，不能用計算機。</p></details><details><summary>答案和原卷不一樣怎麼辦？</summary><p>以官方答案為準。官方有送分、更正或多組答案給分的屆次，卡片上都有註明；2026 年第 58 屆放的是官方修正版答案。</p></details><details><summary>可以拿去商業使用嗎？</summary><p>不行。試卷資源僅供學術研究與個人學習，請勿商業化。</p></details></div>
+</section>
+<section class="addr" aria-label="聯絡資訊">
+  <p><b>周逸化學提供</b></p>
+  <p>錯誤回報：zhouyihuaxue@gmail.com</p>
+  <p>服務處：山熊升大學中心</p>
+  <p>地址：300 新竹市東區科園里科學園路 107 巷 2 號</p>
+  <p>聯絡電話：03-6662248</p>
+</section>
+</div>
+<footer>題目與答案為歷屆化學奧林匹亞初選官方公告之原始檔，僅供學習使用。© 化學奧林匹亞初選題庫</footer>
+</div>
+<script>
+(function(){
+  var st='';
+  function apply(){
+    var n=0;
+    document.querySelectorAll('.year').forEach(function(s){
+      var show=!st||s.dataset.g===st; s.hidden=!show; if(show) n+=s.querySelectorAll('.card').length;
+    });
+    document.querySelector('.empty').hidden=n>0;
+    document.querySelector('.count').textContent='顯示 '+n+' 屆';
+  }
+  document.querySelectorAll('.chip').forEach(function(b){
+    b.addEventListener('click',function(){
+      st=b.dataset.g;
+      document.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed',c===b)});
+      apply();
+    });
+  });
+  apply();
+})();
+</script>
+</body>
+</html>
