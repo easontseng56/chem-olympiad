@@ -30,15 +30,22 @@ h1{margin:0;font-family:var(--display);font-size:clamp(26px,5vw,36px);line-heigh
 .btn:hover{background:var(--soft)}
 .btn.solid{background:var(--accent);color:var(--accent-ink)}
 .btn:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.more{font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px}
-.more a{font-weight:700;text-decoration:none}
-details.faq{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:0 14px}
-details.faq>summary{cursor:pointer;padding:10px 0;font-weight:700}
-details.faq details{border-top:1px solid var(--line)}
-details.faq details summary{cursor:pointer;padding:8px 0;font-size:15px}
-details.faq details p{margin:0 0 10px;color:var(--muted);font-size:14px}
+.offer,.about{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 18px}
+.offer h2,.about h2{font-family:var(--display);font-weight:900;font-size:20px;margin:0}
+.offer p,.about p{margin:0;max-width:65ch}
+.warn{color:#c0392b;font-weight:700}
+.contact{display:flex;flex-wrap:wrap;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;text-decoration:none;font-weight:700;border:1px solid var(--accent);color:var(--accent)}
+.pill.primary{background:var(--accent);color:var(--bg)}
+.pill:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.about h3{font-size:16px;margin:4px 0 0}
+.about dl{margin:0;display:flex;flex-direction:column;gap:8px}
+.about dt{font-weight:700}
+.about dd{margin:0;color:var(--muted)}
+.info{display:flex;flex-direction:column;gap:4px;font-size:14px}
+.info p{margin:0}
+.info a{color:var(--accent)}
 footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
-footer p{margin:0}
 @media (max-width:560px){.row{flex-wrap:wrap;padding:10px 12px}.note{order:3;flex-basis:100%}}
 </style>
 <link rel="canonical" href="https://easontseng56.github.io/chem-olympiad/">
@@ -75,12 +82,37 @@ footer p{margin:0}
 <li class="row"><span class="yr"><b>2012</b><span>第 44 屆</span></span><span class="acts"><a class="btn solid" href="https://drive.google.com/file/d/1rcy4mJQOj7X9eDxatGE3mEKT9MxVG3wG/view" target="_blank" rel="noopener" data-paper="2012 化奧初選 題目">題目</a><a class="btn" href="https://drive.google.com/file/d/110h56nRf-RXMwqo4cw8FLeVU-6egkRr0/view" target="_blank" rel="noopener" data-paper="2012 化奧初選 答案">答案</a></span></li>
 </ol>
 </main>
-<div class="more"><span>更多資源：</span><a href="https://easontseng56.github.io/chem-exam/" target="_blank" rel="noopener">新竹高中化學段考題庫</a><a href="https://easontseng56.github.io/chem-mock/" target="_blank" rel="noopener">學測模考題庫</a><a href="https://firstquadrant.kaik.io/" target="_blank" rel="noopener">第一象限教育</a><a href="https://line.me/R/ti/p/@gpk3115q" target="_blank" rel="noopener">官方 LINE</a></div>
-<details class="faq"><summary>常見問題</summary><div><details><summary>化奧初選是什麼考試？</summary><p>全名是國際化學奧林匹亞競賽國家代表隊初選，每年約 11 月舉行，高中生報名參加。初選通過後還有複選與培訓，最後選出 4 位國手代表臺灣參加國際賽。</p></details><details><summary>收錄哪幾屆？</summary><p>2012 年第 44 屆到 2026 年第 58 屆，共 15 屆，題目卷與官方公布的答案都是原始檔。</p></details><details><summary>考試範圍到哪裡？</summary><p>大致涵蓋高中必修與選修化學，也會出現 ΔG°、熵、積分速率式這類超出課綱的內容。2016 年以後題型固定為單選 24 題、多選 17 題、非選 4 題，共 200 分，120 分鐘，不能用計算機。</p></details><details><summary>答案和原卷不一樣怎麼辦？</summary><p>以官方答案為準。送分、更正與多組答案給分都以官方答案檔為準；2026 年第 58 屆放的是官方修正版答案。</p></details><details><summary>可以拿去商業使用嗎？</summary><p>不行。試卷資源僅供學術研究與個人學習，請勿商業化。</p></details></div></details>
-<footer>
-  <p>周逸化學提供・錯誤回報 zhouyihuaxue@gmail.com・山熊升大學中心（新竹市東區科學園路 107 巷 2 號，03-6662248）</p>
-  <p>題目與答案為歷屆化奧初選官方公告原始檔，僅供學術研究與個人學習，勿商業化。</p>
-</footer>
+<section class="offer" id="offer">
+  <h2>更多化學學習資源</h2>
+  <p class="warn">試卷資源僅供學術研究與個人學習，勿商業化。</p>
+  <p>化學線上課程、新竹地區各校化學段考題庫與學測模考題庫，歡迎透過官方 LINE 洽詢。</p>
+  <div class="contact">
+    <a class="pill primary" href="https://line.me/R/ti/p/@gpk3115q" target="_blank" rel="noopener">官方 LINE 諮詢 ↗</a>
+    <a class="pill" href="https://firstquadrant.kaik.io/" target="_blank" rel="noopener">第一象限線上課程 ↗</a>
+    <a class="pill" href="https://easontseng56.github.io/chem-exam/" target="_blank" rel="noopener">新竹高中化學段考題庫 ↗</a>
+    <a class="pill" href="https://easontseng56.github.io/chem-mock/" target="_blank" rel="noopener">學測模考題庫 ↗</a>
+  </div>
+</section>
+<section class="about" id="about">
+  <h2>關於本題庫</h2>
+  <p>化學奧林匹亞初選題庫由周逸化學整理，收錄 2012～2026 年第 44～58 屆初選的題目卷與官方答案原始 PDF，適合準備化奧初選與競賽練習。</p>
+  <h3>常見問題</h3>
+  <dl>
+    <dt>化奧初選是什麼考試？</dt><dd>全名是國際化學奧林匹亞競賽國家代表隊初選，每年約 11 月舉行，高中生報名參加。初選通過後還有複選與培訓，最後選出 4 位國手代表臺灣參加國際賽。</dd>
+    <dt>收錄哪幾屆？</dt><dd>2012 年第 44 屆到 2026 年第 58 屆，共 15 屆，題目卷與官方公布的答案都是原始檔。</dd>
+    <dt>考試範圍到哪裡？</dt><dd>大致涵蓋高中必修與選修化學，也會出現 ΔG°、熵、積分速率式這類超出課綱的內容。2016 年以後題型固定為單選 24 題、多選 17 題、非選 4 題，共 200 分，120 分鐘，不能用計算機。</dd>
+    <dt>答案和原卷不一樣怎麼辦？</dt><dd>以官方答案為準。送分、更正與多組答案給分都以官方答案檔為準；2026 年第 58 屆放的是官方修正版答案。</dd>
+    <dt>可以拿去商業使用嗎？</dt><dd>不行。試卷資源僅供學術研究與個人學習，請勿商業化。</dd>
+  </dl>
+</section>
+<section class="info" aria-label="聯絡資訊">
+  <p><b>周逸化學提供</b></p>
+  <p>錯誤回報：<a href="mailto:zhouyihuaxue@gmail.com">zhouyihuaxue@gmail.com</a></p>
+  <p>服務處：山熊升大學中心</p>
+  <p>地址：300新竹市東區科園里科學園路107巷2號</p>
+  <p>聯絡電話：<a href="tel:036662248">03-6662248</a></p>
+</section>
+<footer>題目與答案為歷屆化學奧林匹亞初選官方公告之原始檔，僅供學習使用。</footer>
 </div>
 </body>
 </html>
